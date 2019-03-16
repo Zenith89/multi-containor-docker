@@ -21,7 +21,7 @@ after_success:
   - docker push tsinu/multi-server
   - docker push tsinu/multi-worker
 
-deploy
+deploy:
   provider: elasticbeanstalk
   region: eu-central-1
   app: multi-docker
