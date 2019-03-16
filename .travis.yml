@@ -20,3 +20,17 @@ after_success:
   - docker push tsinu/multi-nginx
   - docker push tsinu/multi-server
   - docker push tsinu/multi-worker
+
+deploy
+  provider: elasticbeanstalk
+  region: eu-central-1
+  app: multi-docker
+  env: MultiDocker-env
+  bucket_name: elasticbeanstalk-eu-central-1-208744279945
+  bucket_path: docker-multi
+
+  on:
+    branch: master
+    access_key_id: AWS_ACCESS_KEY
+    secret_access_key:
+      secure: $AWS_SECRET_KEY 
